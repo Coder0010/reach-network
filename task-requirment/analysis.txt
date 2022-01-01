@@ -1,0 +1,30 @@
+Min advertisering-system
+----------------------
+- Tables [ ads / users / filters(categories && tags) / ad_tag ]
+    * users[
+        name,
+        email,
+        phone
+    ]
+    * Filters [Combine Table Category && tags][ 
+        name,
+        type enum (tags, categories)
+    ]
+    * tag_ad[
+        tag_id,
+        ad_id
+    ]
+    * Ads [ 
+        name,
+        description,
+        user_id,
+        category_id
+        start_date,
+        type enum (free/paid),
+    ]
+
+- Cruds for [ Ads / Filters ]
+
+- Show Ad info && Related [ tags / categories ]
+
+- Remainder email to users for own upcoming ads of them.

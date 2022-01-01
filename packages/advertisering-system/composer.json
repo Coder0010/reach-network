@@ -1,0 +1,41 @@
+{
+    "name": "mostafakamel/advertisering-system",
+    "description": "Advertisering system",
+    "authors": [
+        {
+            "name": "Mostafa Kamel Masoud",
+            "email": "mostafakamel000@gmail.com"
+        }
+    ],
+    "license": "MIT",
+    "type": "library",
+    "require": {
+        "php": "^7.4|^8.0",
+        "illuminate/contracts": "^8.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "MostafaKamel\\AdvertiseringSystem\\": "src"
+            ,"MostafaKamel\\AdvertiseringSystem\\Database\\Factories\\": "database/factories/",
+            "MostafaKamel\\AdvertiseringSystem\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MostafaKamel\\AdvertiseringSystem\\Tests\\": "tests"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MostafaKamel\\AdvertiseringSystem\\ServiceProvider"
+            ]
+        }
+    }
+}
