@@ -30,5 +30,6 @@ Switch to the repo folder
         * Then choose Migrate_and_Seed
 
 4- Run Schedule and test reminder
+
     * php project/artisan schedule:work
-    * php project/artisan reminder daily
+    * php project/artis*an reminder daily
