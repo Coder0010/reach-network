@@ -2,27 +2,19 @@
 
 namespace MostafaKamel\AdvertiseringSystem\Services;
 
-use Illuminate\Http\Response;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
 use MostafaKamel\AdvertiseringSystem\Models\Ad;
-use MostafaKamel\AdvertiseringSystem\Http\Resources\AdResource;
 
 class AdService
 {
-    public function all()
+    public function all(): Collection
     {
-        $all = Ad::all();
-        return response()->json([
-            "message" => "all data",
-            "data"    => AdResource::collection($all)
-        ], 200);
+        return Ad::latest()->get();
     }
 
-    public function show($id)
+    public function show($id): Model
     {
-        $show = Ad::findOrFail($id);
-        return response()->json([
-            "message" => "{$show->name} service data",
-            "data"    => new AdResource($show)
-        ], 200);
+        return Ad::findOrFail($id);
     }
 }

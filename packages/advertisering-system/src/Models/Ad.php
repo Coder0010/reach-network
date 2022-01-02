@@ -66,4 +66,18 @@ class Ad extends Entity
         return $this->belongsToMany(Filter::class, "ad_tag", "ad_id", "tag_id")
                     ->withTimestamps();
     }
+
+    public function related_ads()
+    {
+        $tags_id     = $this->tags()->pluck('tag_id');
+        $category_id = $this->category_id;
+        $dataByCategory = Ad::whereNotIn('id', [$this->id])->whereCategoryId($category_id)->get();
+        $dataByTagsid   = Ad::whereNotIn('id', [$this->id])->whereRelation('tags', 'tag_id', '=', $tags_id)->get();
+
+        return collect(
+            $dataByCategory, 
+            $dataByTagsid
+        );
+    }
+
 }

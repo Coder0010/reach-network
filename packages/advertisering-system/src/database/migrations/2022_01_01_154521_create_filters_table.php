@@ -17,7 +17,6 @@ class CreateFiltersTable extends Migration
         Schema::create('filters', function (Blueprint $table) {
             $table->increments('id', 11)->key()->unsigned(false);
             $table->string('name');
-            $table->text('description');
             $table->enum('type', [Filter::CATEGORY_TYPE, Filter::TAG_TYPE])->nullable();
             $table->timestamps();
 

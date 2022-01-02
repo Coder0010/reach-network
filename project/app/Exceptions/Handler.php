@@ -57,9 +57,9 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $e)
     {
-        if (App::environment(['local', 'staging'])) {
-            return parent::render($request, $e);
-        }
+        // if (App::environment(['local', 'staging'])) {
+        //     return parent::render($request, $e);
+        // }
         if ($request->wantsJson()) {
             switch ($e) {
                 case $e instanceof MethodNotAllowedHttpException:

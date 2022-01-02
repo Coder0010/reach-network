@@ -17,7 +17,6 @@ class Filter extends Entity
      */
     protected $fillable = [
         'name',
-        'description',
         'type',
     ];
 

@@ -30,8 +30,8 @@ class DatabaseSeeder extends Seeder
             DB::statement("SET FOREIGN_KEY_CHECKS=0;");
             DB::table("ad_tag")->truncate();
             DB::statement("SET FOREIGN_KEY_CHECKS=1;");
-            \MostafaKamel\AdvertiseringSystem\Models\Ad::factory(2)->freeStatus()->create();
-            \MostafaKamel\AdvertiseringSystem\Models\Ad::factory(2)->paidStatus()->create();
+            \MostafaKamel\AdvertiseringSystem\Models\Ad::factory(20)->freeStatus()->create();
+            \MostafaKamel\AdvertiseringSystem\Models\Ad::factory(20)->paidStatus()->create();
         }
     }
 }
