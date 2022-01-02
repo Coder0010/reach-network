@@ -26,7 +26,6 @@ class CreateAdsTable extends Migration
 
             $table->foreign('category_id', 'category_id_fk')->references('id')->on('filters')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
-
         });
     }
 

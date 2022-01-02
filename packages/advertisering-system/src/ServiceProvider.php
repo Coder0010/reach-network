@@ -38,6 +38,5 @@ class ServiceProvider extends LaravelServiceProvider
                 $schedule->command('reminder daily')->everyMinute();
             });
         }
-        
     }
 }

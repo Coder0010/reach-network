@@ -19,9 +19,8 @@ class FilterService
         return Filter::findOrFail($id);
     }
 
-    public function create(array $request) 
+    public function create(array $request)
     {
         return Filter::create($request);
     }
-
 }

@@ -33,9 +33,9 @@ class FilterController extends Controller
         DB::beginTransaction();
         try {
             $entity = FilterService::create($request->all());
-            if($entity){
+            if ($entity) {
                 $message = "record {$entity->name} created successfully";
-            }else{
+            } else {
                 $message = "record not created";
             }
             DB::commit();
@@ -48,7 +48,6 @@ class FilterController extends Controller
                 "data" => $e->getMessage(),
             ], 500);
         }
-
     }
 
     /**

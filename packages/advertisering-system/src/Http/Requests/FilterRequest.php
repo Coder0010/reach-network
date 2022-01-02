@@ -29,7 +29,7 @@ class FilterRequest extends FormRequest
             'name'        => [
                 'required',
                 'string',
-                    Rule::unique('filters')->where(function($query) {
+                    Rule::unique('filters')->where(function ($query) {
                         $query->whereType(request('type'));
                     })
                 ],

@@ -75,9 +75,8 @@ class Ad extends Entity
         $dataByTagsid   = Ad::whereNotIn('id', [$this->id])->whereRelation('tags', 'tag_id', '=', $tags_id)->get();
 
         return collect(
-            $dataByCategory, 
+            $dataByCategory,
             $dataByTagsid
         );
     }
-
 }

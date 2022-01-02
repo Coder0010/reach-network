@@ -40,7 +40,7 @@ class ReminderCommand extends Command
         switch ($this->getType()) {
             case 'daily':
                 $searchDate = $searchDate->addDays(1);
-                (new ReminderService( new TomorrowScheduleOption(), $searchDate ))->process();
+                (new ReminderService(new TomorrowScheduleOption(), $searchDate))->process();
                 break;
             case 'weekly':
                 break;

@@ -34,5 +34,4 @@ class AdController extends Controller
             ]
         ], 200);
     }
-    
 }

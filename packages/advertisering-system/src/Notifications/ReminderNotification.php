@@ -14,7 +14,8 @@ class ReminderNotification extends Notification implements ShouldQueue
 
     protected $subject;
 
-    public function __construct($subject) {
+    public function __construct($subject)
+    {
         $this->setsubject($subject);
     }
 
@@ -28,7 +29,7 @@ class ReminderNotification extends Notification implements ShouldQueue
         logger('ReminderNotification');
         return (new MailMessage)
             ->subject($this->getSubject())
-            ->view("advertisering-system::mail.reminder",[
+            ->view("advertisering-system::mail.reminder", [
                 "subject" => $this->getSubject(),
                 "user"    => $notifiable,
                 "ads"     => AdResource::collection($notifiable->ads),

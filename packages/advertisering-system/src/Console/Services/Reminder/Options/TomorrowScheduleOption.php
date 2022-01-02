@@ -13,7 +13,7 @@ class TomorrowScheduleOption implements ReminderServiceInterface
     {
         logger('TomorrowScheduleOption');
 
-        $users->each(function($user) use ($searchDate){
+        $users->each(function ($user) use ($searchDate) {
             $user->notify(new ReminderNotification("your ads for day {$searchDate->toDateString()} are available"));
         });
         return true;

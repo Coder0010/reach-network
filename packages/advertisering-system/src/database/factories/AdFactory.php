@@ -28,7 +28,7 @@ class AdFactory extends Factory
             'description' => $this->faker->paragraph,
             'category_id' => Filter::factory()->categoryType(),
             'user_id'     => User::factory(),
-            'start_date'  => \Carbon\Carbon::today()->addDays(rand(1,4))
+            'start_date'  => \Carbon\Carbon::today()->addDays(rand(1, 4))
         ];
     }
 

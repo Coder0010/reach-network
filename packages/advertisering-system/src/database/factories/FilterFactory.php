@@ -53,5 +53,4 @@ class FilterFactory extends Factory
             ];
         });
     }
-
 }

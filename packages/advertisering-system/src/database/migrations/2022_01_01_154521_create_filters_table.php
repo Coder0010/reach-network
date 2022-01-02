@@ -19,7 +19,6 @@ class CreateFiltersTable extends Migration
             $table->string('name');
             $table->enum('type', [Filter::CATEGORY_TYPE, Filter::TAG_TYPE])->nullable();
             $table->timestamps();
-
         });
     }
 

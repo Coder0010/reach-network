@@ -8,12 +8,12 @@ use MostafaKamel\AdvertiseringSystem\Console\Services\Reminder\ReminderServiceIn
 
 class ReminderService
 {
-
     protected $service;
 
     protected $searchDate;
 
-    public function __construct(ReminderServiceInterface $service, Carbon $searchDate) {
+    public function __construct(ReminderServiceInterface $service, Carbon $searchDate)
+    {
         $this->setService($service);
         $this->setSearchDate($searchDate);
     }
@@ -28,7 +28,7 @@ class ReminderService
 
     public function getUsers()
     {
-        return User::whereHas('ads', function ($q){
+        return User::whereHas('ads', function ($q) {
             return $q
                     ->whereMonth('ads.start_date', $this->getSearchDate()->month)
                     ->whereDay('ads.start_date', $this->getSearchDate()->day)
