@@ -53,7 +53,7 @@ class Ad extends Entity
      */
     public function advertiser() : BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     /**

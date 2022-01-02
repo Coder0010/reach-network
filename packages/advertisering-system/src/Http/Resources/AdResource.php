@@ -19,7 +19,12 @@ class AdResource extends JsonResource
             "id"          => $this->id,
             "name"        => $this->name,
             "description" => $this->description,
-            "category_id" => optional($this->category) ? new FilterResource($this->category) : new Collection(),
+            "advertiser"  => optional($this->advertiser) ? [
+                "name"  => $this->advertiser->name,
+                "email" => $this->advertiser->email,
+                "phone" => $this->advertiser->phone,
+            ] : new Collection(),
+            "category"    => optional($this->category) ? new FilterResource($this->category) : new Collection(),
             "tags"        => optional($this->tags) ? FilterResource::collection($this->tags) : new Collection(),
             "start_date"  => $this->start_date,
         ];
