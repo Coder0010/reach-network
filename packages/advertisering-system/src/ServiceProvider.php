@@ -2,6 +2,7 @@
 
 namespace MostafaKamel\AdvertiseringSystem;
 
+use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Support\ServiceProvider as LaravelServiceProvider;
 
 class ServiceProvider extends LaravelServiceProvider
@@ -25,10 +26,18 @@ class ServiceProvider extends LaravelServiceProvider
     {
         $this->loadRoutesFrom(__DIR__.'/routes.php');
         $this->loadMigrationsFrom(__DIR__.'/database/migrations');
-        $this->loadFactoriesFrom(__DIR__.'/database/factories');
-        // \Illuminate\Database\Eloquent\Factories\Factory::guessFactoryNamesUsing(function (string $modelName) {
-        //     return '\MostafaKamel\AdvertiseringSystem\Database\\Factories\\' . \Arr::last(explode('\\', $modelName)) . 'Factory';
-        // });
+        $this->loadViewsFrom(__DIR__.'/resources', 'advertisering-system');
+
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                \MostafaKamel\AdvertiseringSystem\Console\Commands\ReminderCommand::class,
+            ]);
+
+            $this->app->booted(function () {
+                $schedule = $this->app->make(Schedule::class);
+                $schedule->command('reminder daily')->everyMinute();
+            });
+        }
         
     }
 }
