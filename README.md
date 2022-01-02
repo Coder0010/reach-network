@@ -32,4 +32,4 @@ Switch to the repo folder
 4- Run Schedule and test reminder
 
     * php project/artisan schedule:work
-    * php project/artis*an reminder daily
+    * php project/artisan reminder daily
