@@ -14,7 +14,6 @@ class ServiceProvider extends LaravelServiceProvider
     public function register()
     {
         $this->app->make('MostafaKamel\AdvertiseringSystem\Http\Controllers\AdController');
-        // $this->app->make('Illuminate\Database\Eloquent\Factory')->load(__DIR__ . '/database/factories');
     }
 
     /**
@@ -27,5 +26,9 @@ class ServiceProvider extends LaravelServiceProvider
         $this->loadRoutesFrom(__DIR__.'/routes.php');
         $this->loadMigrationsFrom(__DIR__.'/database/migrations');
         $this->loadFactoriesFrom(__DIR__.'/database/factories');
+        // \Illuminate\Database\Eloquent\Factories\Factory::guessFactoryNamesUsing(function (string $modelName) {
+        //     return '\MostafaKamel\AdvertiseringSystem\Database\\Factories\\' . \Arr::last(explode('\\', $modelName)) . 'Factory';
+        // });
+        
     }
 }

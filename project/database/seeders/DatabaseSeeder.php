@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
+use DB;
 use Illuminate\Database\Seeder;
-use MostafaKamel\AdvertiseringSystem\Models\Filter;
+use Illuminate\Support\Facades\Schema;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,9 +15,23 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        if (class_exists('MostafaKamel\AdvertiseringSystem\Models\Filter')) {
-            \MostafaKamel\AdvertiseringSystem\Models\Filter::factory(1)->tag()->create();
-            $this->command->info("Console should show this message");
+        DB::statement("SET FOREIGN_KEY_CHECKS=0;");
+        DB::table("users")->truncate();
+        DB::statement("SET FOREIGN_KEY_CHECKS=1;");
+        \App\Models\User::factory(5)->create();
+
+        if (class_exists("MostafaKamel\AdvertiseringSystem\ServiceProvider")) {
+            DB::statement("SET FOREIGN_KEY_CHECKS=0;");
+            DB::table("filters")->truncate();
+            DB::statement("SET FOREIGN_KEY_CHECKS=1;");
+            DB::statement("SET FOREIGN_KEY_CHECKS=0;");
+            DB::table("ads")->truncate();
+            DB::statement("SET FOREIGN_KEY_CHECKS=1;");
+            DB::statement("SET FOREIGN_KEY_CHECKS=0;");
+            DB::table("ad_tag")->truncate();
+            DB::statement("SET FOREIGN_KEY_CHECKS=1;");
+            \MostafaKamel\AdvertiseringSystem\Models\Ad::factory(2)->freeStatus()->create();
+            \MostafaKamel\AdvertiseringSystem\Models\Ad::factory(2)->paidStatus()->create();
         }
     }
 }

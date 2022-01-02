@@ -1762,10 +1762,9 @@
             "dist": {
                 "type": "path",
                 "url": "../packages/advertisering-system",
-                "reference": "3f69be4f136672c499eb9c2e0d3dfb85f9a37cd8"
+                "reference": "15a50f2f949c7d417f99dd27f0c818d1ab4bca8f"
             },
             "require": {
-                "illuminate/contracts": "^8.0",
                 "php": "^7.4|^8.0"
             },
             "require-dev": {
@@ -1782,8 +1781,7 @@
             "autoload": {
                 "psr-4": {
                     "MostafaKamel\\AdvertiseringSystem\\": "src",
-                    "MostafaKamel\\AdvertiseringSystem\\Database\\Factories\\": "database/factories/",
-                    "MostafaKamel\\AdvertiseringSystem\\Database\\Seeders\\": "database/seeders/"
+                    "MostafaKamel\\AdvertiseringSystem\\Database\\Factories\\": "src/database/factories"
                 }
             },
             "autoload-dev": {

@@ -18,9 +18,9 @@ class CreateAdTagTable extends Migration
             $table->integer('ad_id')->index();
             $table->integer('tag_id')->index();
             $table->timestamps();
+
             $table->foreign('ad_id')->references('id')->on('ads')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('tag_id', 'tag_id_fk')->references('id')->on('filters')->onUpdate('cascade')->onDelete('cascade');
-
         });
     }
 

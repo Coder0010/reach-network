@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+use MostafaKamel\AdvertiseringSystem\Models\Filter;
 
 class CreateFiltersTable extends Migration
 {
@@ -17,7 +18,7 @@ class CreateFiltersTable extends Migration
             $table->increments('id', 11)->key()->unsigned(false);
             $table->string('name');
             $table->text('description');
-            $table->enum('status', ['category', 'tag'])->nullable();
+            $table->enum('type', [Filter::CATEGORY_TYPE, Filter::TAG_TYPE])->nullable();
             $table->timestamps();
 
         });

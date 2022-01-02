@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+use MostafaKamel\AdvertiseringSystem\Models\Ad;
 
 class CreateAdsTable extends Migration
 {
@@ -17,11 +18,10 @@ class CreateAdsTable extends Migration
             $table->increments('id', 11)->key()->unsigned(false);
             $table->string('name');
             $table->text('description');
-            $table->text('additional_data')->nullable();// Saved as json
             $table->integer('category_id')->index();
             $table->integer('user_id')->index();
             $table->date('start_date');
-            $table->enum('status', ['free', 'paid'])->default('paid');
+            $table->enum('status', [Ad::FREE, Ad::PAID])->default(Ad::FREE);
             $table->timestamps();
 
             $table->foreign('category_id', 'category_id_fk')->references('id')->on('filters')->onUpdate('cascade')->onDelete('cascade');
